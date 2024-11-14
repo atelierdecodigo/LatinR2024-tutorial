@@ -33,9 +33,9 @@ df <- df %>%
 
 # gráfico de barras
 ggplot(df) + 
-  aes(x = categoria, y = sueldo_bruto, fill = categoria) +
-  geom_bar(stat = "identity", position = "dodge") +
-  facet_wrap(~ antiguedad)
+  aes(x = categoria, y = sueldo_dolar, fill = antiguedad) + 
+  geom_bar(stat = "identity", position = "dodge")
+
 
 # gráfico de perfiles
 ggplot(df) + 
