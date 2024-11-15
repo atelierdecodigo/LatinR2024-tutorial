@@ -107,13 +107,13 @@ g_barras +
                                     family = "times")) # mono
 g_barras + 
   theme(plot.title = element_textbox_simple(
-  size = 12, # font size
+  size = 12,
   face = "bold",
-  linetype = 1, # turn on border
-  box.color = "coral3", # border color (hex codes possible)
-  fill = "bisque", # background fill color (hex codes possible)
-  padding = margin(5, 5, 5, 5), # padding around text inside the box
-  margin = margin(10, 0, 10, 0))) # margin around text box
+  linetype = 1,
+  box.color = "coral3",
+  fill = "bisque",
+  padding = margin(5, 5, 5, 5),
+  margin = margin(10, 0, 10, 0)))
 
 
 
