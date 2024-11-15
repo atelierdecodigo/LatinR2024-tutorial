@@ -127,6 +127,120 @@ g_barras +
 
 # Parte 2: Colores #############################################################
 
+# color vs fill
+
+# gráfico base
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# color en el geom_
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar) + 
+  geom_bar(stat = "identity", position = "dodge", color = "maroon") +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# fill en el geom_
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar) + 
+  geom_bar(stat = "identity", position = "dodge", fill = "maroon") +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# color en aesthetics
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar, color = antiguedad) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# fill en aesthetics
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar, fill = antiguedad) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+
+# colores por nombre
+g_barras + 
+  scale_fill_manual(values = c("0" = "deepskyblue4", "10" = "aquamarine4", "20" = "firebrick"),
+                    labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
+
+# colores por código hex
+g_barras + 
+  scale_fill_manual(values = c("0" = "#CD6090", "10" = "#8B8386", "20" = "#548B54"),
+                    labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
+
+# transparencia: alpha
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar, fill = antiguedad) + 
+  geom_bar(stat = "identity", position = "dodge", alpha = 0.7) +
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# scale_color_gradient()
+ggplot(df) + 
+  aes(x = antiguedad, y = sueldo_dolar, group = categoria, color = sueldo_dolar) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) + 
+  scale_color_gradient(low = "#FFB6C1", high = "#B03060")
+
+ggplot(df) + 
+  aes(x = categoria, y = sueldo_dolar, fill = sueldo_dolar) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_gradient(low = "#BCD2EE", high = "#B03060") + 
+  scale_x_discrete(limits = c("atp1", "jtp", "adjunto", "asociado", "titular"), 
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+
+# tema
+
+# cambio de tema
+g_barras +
+  theme_minimal() # fondo transparente
+
+g_barras + 
+  theme_dark()
+
+
+# customizar fill & color en el tema (element_rect())
+g_barras + 
+  theme(panel.background = element_rect(fill = '#FFA07A', color = "#548B54"),
+        panel.grid = element_line(color = "#8B0000"))
 
 
 
@@ -138,7 +252,6 @@ g_barras +
 
 
 
-# Parte 2: Colores
 
 # Parte 3: Paletas
 
