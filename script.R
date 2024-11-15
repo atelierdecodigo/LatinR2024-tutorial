@@ -105,15 +105,28 @@ g_barras +
   theme(plot.title = element_text(color = "deeppink4", 
                                     face = "bold",
                                     family = "times")) # mono
+
 g_barras + 
   theme(plot.title = element_textbox_simple(
-  size = 12,
+  size = 12, # tamaño fuente
   face = "bold",
-  linetype = 1,
-  box.color = "coral3",
-  fill = "bisque",
-  padding = margin(5, 5, 5, 5),
-  margin = margin(10, 0, 10, 0)))
+  linetype = 1, # agrega borde
+  box.color = "coral3", # color borde
+  fill = "bisque", # color de relleno interno
+  padding = margin(5, 5, 5, 5), # margen interno
+  margin = margin(10, 0, 10, 0))) # margen externo
+
+# valores en el gráfico: geom_text() & geom_text_repel()
+g_barras +
+  geom_text(aes(label = round(sueldo_dolar)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5,
+            size = 3)
+
+
+
+# Parte 2: Colores #############################################################
+
 
 
 
