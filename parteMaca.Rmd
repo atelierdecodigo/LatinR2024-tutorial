@@ -1,0 +1,53 @@
+---
+title: "Tutorial - Parte 2"
+author: "Macarena Quiroga"
+date: "2024-11-13"
+output: html_document
+---
+
+En esta segunda parte vamos a trabajar con paletas y con opciones de guardado.
+
+## Paletas
+
+Una paleta es un conjunto de colores ya predefinidos. Esto es útil por ejemplo cuando tenemos varios gráficos en una misma presentación o en un mismo documento, y queremos que todos usen los mismos colores. Podemos trabajar con paletas prearmadas que están disponibles en distintos paquetes, o podemos crear nuestra paleta propia.
+
+Dentro de las paletas prearmadas, algunas están pensadas para variables continuas y otras para variables discretas. Existen muchos paquetes que traen paletas (entre ellos, el mismo ggplot2), pero aquí vamos a mencionar dos: [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) y [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf).
+
+### RColorBrewer
+
+Este paquete trae ya varias paletas prearmadas para datos categóricos (entonces la paleta está armada por colores bien diferenciados entre sí) o cuantitativos (dos opciones: un solo gradiente de color para mostrar una secuencia de menor a mayor, o un gradiente entre dos colores). 
+
+[ejemplos]
+
+La mayoría de las veces elegimos las paletas en función de los colores que más nos gustan (?) pero hay dos situaciones puntuales que nos llevan a prestar un poco más de atención a las paletas. La primera tiene que ver con el soporte material en el cual se va a presentar ese gráfico: quizás se imprime en blanco y negro, quizás se proyecta en una pared de color... entonces estas cuestiones nos pueden llevar a elegir una paleta sobre otra. La segunda situación tiene que ver con la accesibilidad de estos materiales: ¿la combinación de colores es apta para personas con distintos tipos de dificultades en la visión, como el daltonismo?
+
+El paquete RColorBrewer tiene una función/argumento que nos muestra combinaciones de colores aptas daltonismo. Pero también hay otros paquetes que directamente tienen esto en cuenta, como el paquete viridis.
+
+### Viridis
+
+scale_fill_viridis() o scale_color_viridis()
+opción discrete = F/T para variables categóricas o continuas
+
+[ ejemplos]
+
+### Crear nuestra propia paleta
+
+A veces necesitamos elegir específicamente los colores de nuestro gráfico, por ejemplo si queremos que el gráfico combine con los colores del evento donde vamos a publicar. Para eso, podemos especificar manualmente los colores (si queremos controlar específicamente qué color usar en cada elemento) o podemos definir una paleta con un conjunto de colores.
+
+Podemos elegir los colores a partir de su nombre en la [lista de colores de R](https://r-charts.com/colors/) o podemos usar su [código hexagesimal](https://htmlcolorcodes.com/). El código hexagesimal o "hexcode" es un código de seis caracteres que se usa universalmente para definir los colores; no es el único código, pero sí uno de los más fáciles. Existen también sitios web de donde inspirarnos para construir paletas, como [este](https://coolors.co/) y [este](https://www.instagram.com/colours.cafe/).
+
+[ejemplo 1]
+[ejemplo 2]
+
+## Guaradado
+
+Bueno, ya hicimos nuestro gráfico, le cambiamos el texto, los colores. Llega el momento de exportarlo. Tenemos varias opciones, que se las voy a presentar de la forma más a la menos vaga:
+
+1) la opción más vaga es hacer control+c y control+v en el gráfico. si necesitan ajustar el tamaño, pueden usar la opción de "zoom", ajustar el tamaño de la ventana y copiar desde esa forma.
+
+2) la segunda opción es usar la opción de "Export", que
+
+```{r}
+plot(cars)
+```
+

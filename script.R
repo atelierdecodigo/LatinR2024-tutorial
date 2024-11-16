@@ -245,22 +245,78 @@ g_barras +
 
 
 
-
-
-
-
-
-
-
-
 # Parte 3: Paletas
+
+# guardar una paleta propia
+paleta <- c("deepskyblue4", "aquamarine4", "firebrick")
+g_barras + 
+  scale_fill_manual(values = paleta,
+                    labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
+
+# usar paletas preexistentes
+
+## RColorBrewer
+g_barras +
+  scale_fill_brewer(palette = "Set2",
+                    direction = 1
+                    # direction = -1
+                    )
+
+g_perfiles+
+  scale_color_brewer(palette = "Accent")
+
+
+## Viridis
+
+a <- g_barras + 
+  scale_fill_viridis_d(option = "viridis"
+                        #"plasma"
+                       #"magma"
+                       #"inferno"
+                       )
+
+## Paletas temáticas
+
+# Wes Anderson
+install.packages("wesanderson")
+g_barras + 
+  scale_fill_manual(values = wesanderson::wes_palette("Royal2"))
+
+# mariposas
+devtools::install_github("junqueiragaabi/ButterflyColors")
+g_barras + 
+  scale_fill_manual(values = ButterflyColors::butterfly_palettes(specie = "lycorea_hallia"))
+
+# artistas latines
+devtools::install_github("jbgb13/peRReo") 
+g_barras + 
+  scale_fill_manual(values = peRReo::latin_palette("buenavista"))
+
+## Chequear accesibilidad
+
+install.packages("colorspace", repos = "http://R-Forge.R-project.org")
+remotes::install_github("clauswilke/colorblindr")
+
+colorblindr::cvd_grid(g_barras) # default
+colorblindr::cvd_grid(a) # viridis
+
+
+
 
 # Parte 4: Guardado
 
+# copypaste
+
+# export
+
+# ggsave
+ggsave("graf_barras.jpg", plot = g_barras, dpi = 600,
+       width = 15, height = 10, units = "cm")
 
 
-
-
+# para vectorizarlo y abrirlo en ppt
+install.packages("svglite")
+ggsave("graf_barras.svg")
 
 
 
