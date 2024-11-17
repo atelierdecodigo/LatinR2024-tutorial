@@ -72,6 +72,19 @@ g_barras <- g_barras +
                               "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular")) +
   scale_fill_discrete(labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
 
+# orden de niveles de las variables (solo en el gráfico)
+g_barras <- g_barras + 
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "categorías docentes",
+       fill = "antigüedad") + 
+  scale_x_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), # reordeno
+                   labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                              "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular")) +
+  scale_fill_discrete(labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
+
+
+
 # theme() y element_text()
 # theme(
 #   text = # todo el texto
@@ -128,6 +141,15 @@ g_barras +
 
 # Tomen el g_perfiles y reordenen las categorías docentes, cambien los nombres de las variables 
 # para que estén todos con mayúsculas, en itálicas de un color que elijan.
+
+g_perfiles + 
+  labs(title = "Incremento salarial (US$) por antigüedad\npara cada categoría docente", 
+       y = "sueldo en dólares",
+       x = "antigüedad docente",
+       color = "categoría\ndocente") + 
+  scale_color_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
+                       labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
+                                  "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
 
 
 
