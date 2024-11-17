@@ -245,7 +245,7 @@ g_barras +
 
 
 
-# Parte 3: Paletas
+# Parte 3: Paletas #############################################################
 
 # guardar una paleta propia
 paleta <- c("deepskyblue4", "aquamarine4", "firebrick")
@@ -303,7 +303,7 @@ colorblindr::cvd_grid(a) # viridis
 
 
 
-# Parte 4: Guardado
+# Parte 4: Guardado  ############################################################
 
 # copypaste
 
