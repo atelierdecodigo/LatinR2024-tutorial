@@ -149,7 +149,11 @@ g_perfiles +
        color = "categoría\ndocente") + 
   scale_color_discrete(limits = c("titular", "asociado", "adjunto", "jtp", "atp1"), 
                        labels = c("adjunto" = "Adjunto", "asociado" = "Asociado", 
-                                  "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular"))
+                                  "atp1" = "ATP 1°", "jtp" = "JTP", "titular" = "Titular")) + 
+  theme(plot.title = element_text(face = "italic", color = "darkolivegreen"),
+        axis.title.x = element_text(face = "italic", color = "darkolivegreen"),
+        axis.title.y = element_text(face = "italic", color = "darkolivegreen"),
+        legend.title = element_text(face = "italic", color = "darkolivegreen"))
 
 
 
