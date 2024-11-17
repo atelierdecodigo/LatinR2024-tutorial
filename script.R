@@ -124,6 +124,14 @@ g_barras +
             size = 3)
 
 
+## Ejercicio 1: cambiar texto
+
+# Tomen el g_perfiles y reordenen las categorías docentes, cambien los nombres de las variables 
+# para que estén todos con mayúsculas, en itálicas de un color que elijan.
+
+
+
+
 
 # Parte 2: Colores #############################################################
 
