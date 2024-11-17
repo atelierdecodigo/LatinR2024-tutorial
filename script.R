@@ -137,7 +137,7 @@ g_barras +
             size = 3)
 
 
-## Ejercicio 1: cambiar texto
+## Ejercicio 1: cambiar texto ###################################################
 
 # Tomen el g_perfiles y reordenen las categorías docentes, cambien los nombres de las variables 
 # para que estén todos con mayúsculas, en itálicas de un color que elijan.
@@ -275,6 +275,18 @@ g_barras +
 g_barras + 
   theme(panel.background = element_rect(fill = '#FFA07A', color = "#548B54"),
         panel.grid = element_line(color = "#8B0000"))
+
+
+
+## Ejercicio 2: cambiar colores #################################################
+
+# A partir del gráfico de barras con el que venimos trabajando, cambien los colores de
+# la antigüedad docente. Utilicen khaki4 para los 0 años, lightpink para los 10 años y 
+# maroon para los 20 años.
+
+g_barras + 
+  scale_fill_manual(values = c("0" = "khaki4", "10" = "lightpink", "20" = "maroon"),
+                    labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
 
 
 
