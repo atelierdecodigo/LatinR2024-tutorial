@@ -346,10 +346,20 @@ remotes::install_github("clauswilke/colorblindr")
 colorblindr::cvd_grid(g_barras) # default
 colorblindr::cvd_grid(a) # viridis
 
+## Ejercicio 3: Paletas #########################################################
 
+# Elegí tres colores para construir una paleta propia y aplicala al gráfico de barras.
+# Comprobá que sean aptos para personas con daltonismo y, de ser necesario, modificala.
 
 
 # Parte 4: Guardado  ############################################################
+
+# combinación de gráficos
+devtools::install_github("thomasp85/patchwork")
+library(patchwork)
+
+g_barras + g_perfiles
+g_barras / g_perfiles
 
 # copypaste
 
