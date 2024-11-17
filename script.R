@@ -74,15 +74,15 @@ g_barras <- g_barras +
 
 # theme() y element_text()
 # theme(
-#   text = # all text items
+#   text = # todo el texto
 #     plot.title = 
 #     plot.subtitle = 
-#     plot.caption = # bottom right
-#     plot.tag =  # top left
-#     axis.title = # axis labels
+#     plot.caption =
+#     plot.tag = 
+#     axis.title =
 #     axis.title.x = 
 #     axis.title.y = 
-#     axis.text = # axis tick labels
+#     axis.text = 
 #     axis.text.x = 
 #     axis.text.y = 
 #     legend.title = 
