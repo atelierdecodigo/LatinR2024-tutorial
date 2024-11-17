@@ -351,6 +351,13 @@ colorblindr::cvd_grid(a) # viridis
 # Elegí tres colores para construir una paleta propia y aplicala al gráfico de barras.
 # Comprobá que sean aptos para personas con daltonismo y, de ser necesario, modificala.
 
+paleta2 <- c("deeppink4", "darkslategray4", "orangered3")
+b <- g_barras + 
+  scale_fill_manual(values = paleta2,
+                    labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
+
+colorblindr::cvd_grid(b)
+
 
 # Parte 4: Guardado  ############################################################
 
