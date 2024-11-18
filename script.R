@@ -7,6 +7,8 @@
 
 # Paquetes y funciones #########################################################
 library(tidyverse)
+library(ggtext)
+library(ggrepel)
 
 
 
@@ -84,7 +86,6 @@ g_barras <- g_barras +
   scale_fill_discrete(labels = c("0" = "0 años", "10" = "10 años", "20" = "20 años"))
 
 
-
 # theme() y element_text()
 # theme(
 #   text = # todo el texto
@@ -116,25 +117,33 @@ g_barras +
 
 g_barras + 
   theme(plot.title = element_text(color = "deeppink4", 
-                                    face = "bold",
-                                    family = "times")) # mono
+                                  face = "bold",
+                                  family = "times")) # mono
 
 g_barras + 
   theme(plot.title = element_textbox_simple(
-  size = 12, # tamaño fuente
-  face = "bold",
-  linetype = 1, # agrega borde
-  box.color = "coral3", # color borde
-  fill = "bisque", # color de relleno interno
-  padding = margin(5, 5, 5, 5), # margen interno
-  margin = margin(10, 0, 10, 0))) # margen externo
+    size = 12, # tamaño fuente
+    face = "bold",
+    linetype = 1, # agrega borde
+    box.color = "coral3", # color borde
+    fill = "bisque", # color de relleno interno
+    padding = margin(5, 5, 5, 5), # margen interno
+    margin = margin(10, 0, 10, 0))) # margen externo
 
 # valores en el gráfico: geom_text() & geom_text_repel()
-g_barras +
-  geom_text(aes(label = round(sueldo_dolar)), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5,
-            size = 3)
+g_perfiles + 
+  geom_text(aes(label = round(sueldo_dolar)), size = 2.5, color = "black")
+
+g_perfiles + 
+  geom_text(aes(label = round(sueldo_dolar)),
+            vjust = -0.5, hjust = -0.3, size = 2.5, color = "black")
+
+g_perfiles + 
+  geom_text_repel(aes(label = round(sueldo_dolar)), size = 2.5, color = "black")
+
+g_perfiles + 
+  geom_label_repel(aes(label = round(sueldo_dolar)), size = 2.5, color = "black")
+
 
 
 ## Ejercicio 1: cambiar texto ###################################################
@@ -154,8 +163,6 @@ g_perfiles +
         axis.title.x = element_text(face = "italic", color = "darkolivegreen"),
         axis.title.y = element_text(face = "italic", color = "darkolivegreen"),
         legend.title = element_text(face = "italic", color = "darkolivegreen"))
-
-
 
 
 
@@ -290,7 +297,6 @@ g_barras +
 
 
 
-
 # Parte 3: Paletas #############################################################
 
 # guardar una paleta propia
@@ -306,22 +312,22 @@ g_barras +
   scale_fill_brewer(palette = "Set2",
                     direction = 1
                     # direction = -1
-                    )
+  )
 
 g_perfiles+
   scale_color_brewer(palette = "Accent")
 
 
-## Viridis
+## viridis
 
 a <- g_barras + 
   scale_fill_viridis_d(option = "viridis"
-                        #"plasma"
+                       #"plasma"
                        #"magma"
                        #"inferno"
-                       )
+  )
 
-## Paletas temáticas
+## paletas temáticas
 
 # Wes Anderson
 install.packages("wesanderson")
@@ -338,7 +344,8 @@ devtools::install_github("jbgb13/peRReo")
 g_barras + 
   scale_fill_manual(values = peRReo::latin_palette("buenavista"))
 
-## Chequear accesibilidad
+
+## chequear accesibilidad
 
 install.packages("colorspace", repos = "http://R-Forge.R-project.org")
 remotes::install_github("clauswilke/colorblindr")
@@ -346,7 +353,9 @@ remotes::install_github("clauswilke/colorblindr")
 colorblindr::cvd_grid(g_barras) # default
 colorblindr::cvd_grid(a) # viridis
 
-## Ejercicio 3: Paletas #########################################################
+
+
+## Ejercicio 3: Paletas ########################################################
 
 # Elegí tres colores para construir una paleta propia y aplicala al gráfico de barras.
 # Comprobá que sean aptos para personas con daltonismo y, de ser necesario, modificala.
@@ -359,7 +368,8 @@ b <- g_barras +
 colorblindr::cvd_grid(b)
 
 
-# Parte 4: Guardado  ############################################################
+
+# Parte 4: Guardado  ###########################################################
 
 # combinación de gráficos
 devtools::install_github("thomasp85/patchwork")
@@ -386,13 +396,8 @@ ggsave("graf_barras.svg")
 # Links útiles #################################################################
 
 # R Graph Gallery: https://www.r-graph-gallery.com
-# Tidyverse: https://www.tidyverse.org/
-# Libro "R for Data Science": https://r4ds.had.co.nz/index.html
 # Colores incorporados en R: https://r-charts.com/es/colores/
-# Cheat sheets: https://rstudio.com/resources/cheatsheets/
-# Tutoriales de dplyr - Parte 1: https://www.kaggle.com/jessemostipak/dive-into-dplyr-tutorial-1
-# Tutoriales de dplyr - Parte 2: https://www.kaggle.com/jessemostipak/dive-deeper-into-dplyr-tutorial-2
-# Introductory tutorials on data vis and wrangling in R: https://r-bootcamp.netlify.app/
+# ggplot2 cheat sheet: https://rstudio.github.io/cheatsheets/html/data-visualization.html
 # Instructivos paso a paso de ggplot: http://www.cookbook-r.com/Graphs/
 # Instructivo interactivo con ejemplos de todas las scales: https://ggplot2tor.com/scales/
 # Color Brewer: https://colorbrewer2.org/
